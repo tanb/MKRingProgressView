@@ -148,7 +148,7 @@ open class RingProgressLayer: CALayer {
         }
     }
     
-    private func drawContent(in context: CGContext) {
+    public func drawContent(in context: CGContext) {
         context.setShouldAntialias(allowsAntialiasing)
         context.setAllowsAntialiasing(allowsAntialiasing)
         
