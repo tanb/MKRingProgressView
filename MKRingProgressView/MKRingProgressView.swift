@@ -143,7 +143,7 @@ open class RingProgressView: UIView {
         return RingProgressLayer.self
     }
 
-    private var ringProgressLayer: RingProgressLayer {
+    public var ringProgressLayer: RingProgressLayer {
         return layer as! RingProgressLayer
     }
 
