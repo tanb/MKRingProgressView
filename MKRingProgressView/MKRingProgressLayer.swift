@@ -96,7 +96,7 @@ open class RingProgressLayer: CALayer {
     @NSManaged public var progress: CGFloat
     
     /// Disable actions for `progress` property.
-    internal var disableProgressAnimation: Bool = false
+    var disableProgressAnimation: Bool = false
     
     private let gradientGenerator = GradientGenerator()
     
