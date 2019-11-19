@@ -25,7 +25,7 @@
 import UIKit
 
 @objc(MKGradientGenerator)
-open class GradientGenerator: NSObject {
+public class GradientGenerator: NSObject {
 
     var scale: CGFloat = UIScreen.main.scale {
         didSet {
