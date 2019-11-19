@@ -24,48 +24,50 @@
 
 import UIKit
 
-internal final class GradientGenerator {
-    var scale: CGFloat = UIScreen.main.scale {
+@objc(MKGradientGenerator)
+public class GradientGenerator: NSObject {
+
+    public var scale: CGFloat = UIScreen.main.scale {
         didSet {
             if scale != oldValue {
                 reset()
             }
         }
     }
-    
-    var size: CGSize = .zero {
+
+    public var size: CGSize = .zero {
         didSet {
             if size != oldValue {
                 reset()
             }
         }
     }
-    
-    var colors: [CGColor] = [] {
+
+    public var colors: [CGColor] = [] {
         didSet {
             if colors != oldValue {
                 reset()
             }
         }
     }
-    
-    var locations: [Float] = [] {
+
+    public var locations: [Float] = [] {
         didSet {
             if locations != oldValue {
                 reset()
             }
         }
     }
-    
-    var startPoint: CGPoint = CGPoint(x: 0.5, y: 0.5) {
+
+    public var startPoint: CGPoint = CGPoint(x: 0.5, y: 0.5) {
         didSet {
             if startPoint != oldValue {
                 reset()
             }
         }
     }
-    
-    var endPoint: CGPoint = CGPoint(x: 1.0, y: 0.5) {
+
+    public var endPoint: CGPoint = CGPoint(x: 1.0, y: 0.5) {
         didSet {
             if endPoint != oldValue {
                 reset()
@@ -78,8 +80,8 @@ internal final class GradientGenerator {
     func reset() {
         generatedImage = nil
     }
-    
-    func image() -> CGImage? {
+
+    public func image() -> CGImage {
         if let image = generatedImage {
             return image
         }
