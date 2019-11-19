@@ -100,7 +100,7 @@ open class RingProgressLayer: CALayer {
     
     private let gradientGenerator = GradientGenerator()
     
-    open var gradient: CGImage?
+    public var gradient: CGImage?
   
     open override class func needsDisplay(forKey key: String) -> Bool {
         if key == "progress" {
