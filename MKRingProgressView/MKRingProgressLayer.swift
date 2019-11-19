@@ -100,6 +100,8 @@ open class RingProgressLayer: CALayer {
     
     private let gradientGenerator = GradientGenerator()
     
+    var gradient: CGImage?
+  
     open override class func needsDisplay(forKey key: String) -> Bool {
         if key == "progress" {
             return true
@@ -285,20 +287,20 @@ open class RingProgressLayer: CALayer {
         }
         
         // Draw gradient arc
-        
-        let gradient: CGImage? = {
-            guard useGradient else {
-                return nil
-            }
-            let s = Float(1.5 * w / (2 * .pi * r))
-            gradientGenerator.scale = gradientImageScale
-            gradientGenerator.size = gradientRect.size
-            gradientGenerator.colors = [endColor, endColor, startColor, startColor]
-            gradientGenerator.locations = [0.0, s, 1.0 - s, 1.0]
-            gradientGenerator.endPoint = CGPoint(x: 0.5 - CGFloat(2 * s), y: 1.0)
-            return gradientGenerator.image()
-        }()
-        
+        if gradient == nil {
+            gradient = {
+                guard useGradient else {
+                    return nil
+                }
+                let s = Float(1.5 * w / (2 * .pi * r))
+                gradientGenerator.scale = gradientImageScale
+                gradientGenerator.size = gradientRect.size
+                gradientGenerator.colors = [endColor, endColor, startColor, startColor]
+                gradientGenerator.locations = [0.0, s, 1.0 - s, 1.0]
+                gradientGenerator.endPoint = CGPoint(x: 0.5 - CGFloat(2 * s), y: 1.0)
+                return gradientGenerator.image()
+            }()
+        }
         if p > 0.0 {
             let arc1Path = UIBezierPath(
                 arcCenter: c,
