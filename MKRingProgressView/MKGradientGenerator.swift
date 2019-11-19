@@ -27,7 +27,7 @@ import UIKit
 @objc(MKGradientGenerator)
 public class GradientGenerator: NSObject {
 
-    var scale: CGFloat = UIScreen.main.scale {
+    public var scale: CGFloat = UIScreen.main.scale {
         didSet {
             if scale != oldValue {
                 reset()
@@ -35,7 +35,7 @@ public class GradientGenerator: NSObject {
         }
     }
 
-    var size: CGSize = .zero {
+    public var size: CGSize = .zero {
         didSet {
             if size != oldValue {
                 reset()
@@ -43,7 +43,7 @@ public class GradientGenerator: NSObject {
         }
     }
 
-    var colors: [CGColor] = [] {
+    public var colors: [CGColor] = [] {
         didSet {
             if colors != oldValue {
                 reset()
@@ -51,7 +51,7 @@ public class GradientGenerator: NSObject {
         }
     }
 
-    var locations: [Float] = [] {
+    public var locations: [Float] = [] {
         didSet {
             if locations != oldValue {
                 reset()
@@ -59,7 +59,7 @@ public class GradientGenerator: NSObject {
         }
     }
 
-    var startPoint: CGPoint = CGPoint(x: 0.5, y: 0.5) {
+    public var startPoint: CGPoint = CGPoint(x: 0.5, y: 0.5) {
         didSet {
             if startPoint != oldValue {
                 reset()
@@ -67,7 +67,7 @@ public class GradientGenerator: NSObject {
         }
     }
 
-    var endPoint: CGPoint = CGPoint(x: 1.0, y: 0.5) {
+    public var endPoint: CGPoint = CGPoint(x: 1.0, y: 0.5) {
         didSet {
             if endPoint != oldValue {
                 reset()
@@ -81,7 +81,7 @@ public class GradientGenerator: NSObject {
         generatedImage = nil
     }
 
-    func image() -> CGImage {
+    public func image() -> CGImage {
         if let image = generatedImage {
             return image
         }
