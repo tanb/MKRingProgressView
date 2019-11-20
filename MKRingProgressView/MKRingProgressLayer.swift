@@ -167,7 +167,10 @@ open class RingProgressLayer: CALayer {
         let p = max(0.0, disableProgressAnimation ? progress : presentation()?.progress ?? 0.0)
         let angleOffset = CGFloat.pi / 2
         let angle = 2 * .pi * p - angleOffset
-        let minAngle = 1.1 * atan(0.5 * w / r)
+        var minAngle = 1.1 * atan(0.5 * w / r)
+        if progressStyle == .square {
+            minAngle = 0.0
+        }
         let maxAngle = 2 * .pi - 3 * minAngle - angleOffset
         
         let circleRect = squareRect.insetBy(dx: w / 2, dy: w / 2)
